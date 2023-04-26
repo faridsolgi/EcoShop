@@ -1,4 +1,4 @@
-package com.faridsolgi.samplestore.view
+package com.faridsolgi.ecoshop.view
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater

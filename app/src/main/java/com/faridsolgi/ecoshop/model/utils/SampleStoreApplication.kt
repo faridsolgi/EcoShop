@@ -1,4 +1,4 @@
-package com.faridsolgi.samplestore.model.utils
+package com.faridsolgi.ecoshop.model.utils
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

@@ -1,4 +1,4 @@
-package com.faridsolgi.samplestore
+package com.faridsolgi.ecoshop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
