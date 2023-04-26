@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.faridsolgi.samplestore'
+    namespace 'com.faridsolgi.ecoshop'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.faridsolgi.samplestore"
+        applicationId "com.faridsolgi.echoshop"
         minSdk 22
         targetSdk 33
         versionCode 1
