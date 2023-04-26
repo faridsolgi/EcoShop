@@ -63,6 +63,6 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideMovieApi(retrofit: Retrofit) : LoginApi =
+    fun provideLoginApi(retrofit: Retrofit) : LoginApi =
         retrofit.create(LoginApi::class.java)
 }
