@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.EcoShop" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.EcoShop" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/md_purple_500</item>
         <item name="colorPrimaryVariant">@color/md_purple_700</item>
@@ -12,8 +12,53 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <!--textbox-->
+        <item name="textInputStyle">@style/Widget.EcoShop.TextInputLayout.OutlinedBox</item>
     </style>
-    <style name="TextAppearance.MyApp.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+    <style name="TextAppearance.EcoShop.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+    <style name="TextAppearance.EcoShop.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+    <style name="TextAppearance.EcoShop.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+    <style name="TextAppearance.EcoShop.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+    <style name="TextAppearance.EcoShop.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+    <style name="TextAppearance.EcoShop.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+    <style name="TextAppearance.EcoShop.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+    <style name="TextAppearance.EcoShop.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+
+    <style name="TextAppearance.EcoShop.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+    <style name="TextAppearance.EcoShop.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+    <style name="TextAppearance.EcoShop.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+    <style name="TextAppearance.EcoShop.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+    <style name="TextAppearance.EcoShop.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/inter</item>
+    </style>
+
+    <style name="Widget.EcoShop.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
     </style>
+
 </resources>
