@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SampleStore</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="login">Login</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="lorem_login">Welcome back A Lorem Ipsum text generator is specifically designed to generate a dummy text or placeholder text. Username password Login</string>
 </resources>
