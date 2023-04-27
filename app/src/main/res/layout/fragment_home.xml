@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView8"
+        android:src="@drawable/banner_home_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icSorting"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_sorting"
+        app:layout_constraintStart_toStartOf="@+id/banner"
+        app:layout_constraintTop_toBottomOf="@id/banner"
+        app:tint="?attr/colorOnBackground" />
+
+    <TextView
+        android:id="@+id/lblSorting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+
+        android:text="@string/sorting"
+        android:textColor="?attr/colorOnBackground"
+        android:textAppearance="@style/TextAppearance.EcoShop.Body1"
+        app:layout_constraintBottom_toBottomOf="@id/icSorting"
+        app:layout_constraintStart_toEndOf="@id/icSorting"
+        app:layout_constraintTop_toTopOf="@id/icSorting" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:id="@+id/radioGSorting"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/lblSorting"
+        app:layout_constraintStart_toEndOf="@id/lblSorting"
+        app:layout_constraintTop_toTopOf="@id/lblSorting">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawablePadding="8dp"
+            android:text="@string/ascending"
+            android:drawableTint="?attr/colorOnBackground"
+            android:drawableEnd="@drawable/ic_arrow_up"
+            android:textColor="?attr/colorOnBackground"
+            />
+  <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawablePadding="8dp"
+      android:layout_marginStart="16dp"
+            android:text="@string/descending"
+            android:drawableTint="?attr/colorOnBackground"
+            android:drawableEnd="@drawable/ic_arrow_down"
+            android:textColor="?attr/colorOnBackground"
+            />
+
+    </RadioGroup>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="8dp"
+        android:background="?attr/colorOnBackground"
+        android:id="@+id/viewSpliterUnderSorting"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintStart_toStartOf="@+id/icSorting"
+        app:layout_constraintTop_toBottomOf="@id/radioGSorting" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/viewSpliterUnderSorting"
+        android:id="@+id/rvProductCategory"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/rvProductCategory"
+     android:id="@+id/rvProducts"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
