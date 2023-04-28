@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="145dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardElevation="2dp"
+    android:layout_marginStart="8dp"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="match_parent"
+            android:layout_height="98dp"
+            android:layout_margin="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@drawable/banner_home_top"
+            android:scaleType="centerInside"
+            app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView8"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/imageViewProductPic"
+            android:layout_gravity="center"
+            />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:layout_marginTop="8dp"
+          android:theme="@style/Widget.EcoShop.RatingBar"
+            android:numStars="5"
+            tools:rating="3.7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewProductPic" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="title"
+            android:lines="2"
+            android:maxLines="2"
+                android:id="@+id/rvProductTitle"
+
+            android:textColor="?attr/colorOnSurface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="title"
+            android:lines="4"
+            android:maxLines="4"
+            android:textAppearance="@style/TextAppearance.EcoShop.Caption"
+            android:id="@+id/rvProductdesc"
+            tools:text="sfafalsf a;fla ;flaf la jaifj aifj aif jai sjai fjai fjj aifja if"
+            android:textColor="?attr/colorOnBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvProductTitle" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_bag"
+            android:background="?attr/colorPrimary"
+            app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView8"
+            android:scaleType="centerCrop"
+            android:id="@+id/addToCert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvProductdesc" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/addToCert"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/addToCert"
+            android:textColor="?attr/colorOnSurface"
+            android:id="@+id/price"
+            app:layout_constraintBottom_toBottomOf="@id/addToCert"
+            android:text="$ 100"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
