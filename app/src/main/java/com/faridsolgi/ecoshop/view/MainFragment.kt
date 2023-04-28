@@ -4,6 +4,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.faridsolgi.ecoshop.R
 import com.faridsolgi.ecoshop.databinding.FragmentMainBinding
 
@@ -11,7 +12,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     override fun fragmentBody() {
     val navHostFragment= childFragmentManager.findFragmentById(R.id.nav_home_fragment_container) as NavHostFragment
         val navController = navHostFragment.navController
-        navController.navigateUp()
+        binding.bottomNav.setupWithNavController(navController)
 
     }
 }
