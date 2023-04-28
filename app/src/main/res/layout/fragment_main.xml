@@ -63,7 +63,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/md_teal_50"
+            android:background="@color/md_grey_50"
             app:menu="@menu/menu_bottom_navigation_main"
 
             />
