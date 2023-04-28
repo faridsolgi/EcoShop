@@ -41,7 +41,7 @@
         android:layout_marginBottom="?attr/actionBarSize"
         app:defaultNavHost="true"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        app:navGraph="@navigation/nav_graph_main_fragment" />
+        app:navGraph="@navigation/nav_graph_main_fragment_bot_nav" />
 
 
     <com.google.android.material.bottomappbar.BottomAppBar
@@ -60,7 +60,6 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNav"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/md_grey_50"
@@ -78,7 +77,7 @@
         android:layout_marginTop="-30dp"
         android:src="@drawable/ic_add"
         app:backgroundTint="?attr/colorPrimary"
-        app:fabSize="normal"
+        app:fabSize="mini"
         app:layout_anchor="@id/bottomAppBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

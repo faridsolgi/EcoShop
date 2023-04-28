@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="32dp"
+
+    android:background="@android:color/transparent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/viewTopBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/md_blue_grey_100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/product_details"
+                android:textAppearance="@style/TextAppearance.EcoShop.Subtitle1"
+                android:id="@+id/lblProductDetail"
+                android:textColor="?attr/colorOnSurface"
+                app:layout_constraintBottom_toBottomOf="@id/viewTopBar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_round_star"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/imgStar"
+                app:layout_constraintBottom_toBottomOf="@id/viewTopBar"
+               app:layout_constraintEnd_toStartOf="@id/tvRating"
+                android:layout_marginEnd="8dp"
+                app:tint="@color/md_yellow_500" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="4.9"
+                    android:textColor="?attr/colorOutline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="16dp"
+                    android:textAppearance="@style/TextAppearance.EcoShop.Headline6"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/viewTopBar"
+                    android:id="@+id/tvRating"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView8"
+                app:layout_constraintTop_toBottomOf="@id/viewTopBar"
+                tools:src="@drawable/banner_home_top"
+                android:id="@+id/imgProductPic"
+                />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgProductPic"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxLines="2"
+            android:layout_marginTop="8dp"
+            tools:text="sample title sample titlesample title sample title"
+            android:id="@+id/tvTitle"
+            android:textAppearance="@style/TextAppearance.EcoShop.Subtitle1"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:id="@+id/tvDesc"
+                android:textAppearance="@style/TextAppearance.EcoShop.Caption"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                tools:text="asda dad ad ads ad a dad ds asd ads as das wfwe fwgwg wg wg wg wg wg wg wg wg wg wg wg wg gwg mymymymymymymymymy \n \n\nfs ef ggw gwgwgwg ehrjttytyktktktktkm tmtmtmt
+m tmm"/>
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textAppearance="@style/TextAppearance.EcoShop.Headline6"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ctaAddToCart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDesc"
+                tools:text="@string/dollorSignWithPrice" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_bag"
+            android:id="@+id/ctaAddToCart"
+            android:text="@string/add_to_cart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDesc"
+            android:layout_margin="16dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
