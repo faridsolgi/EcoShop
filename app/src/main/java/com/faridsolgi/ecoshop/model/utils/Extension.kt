@@ -1,10 +1,13 @@
 package com.faridsolgi.ecoshop.model.utils
 
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 
@@ -28,4 +31,16 @@ fun AppCompatActivity.navHost(view: View): NavHostFragment =
 ) {
 
     Snackbar.make(view, msg, duration).show()
+}
+
+fun  TextView.setDrawableTint(color: Int){
+    for (drawable in this.compoundDrawables) {
+        if (drawable != null) {
+            drawable.colorFilter =
+                PorterDuffColorFilter(
+                    color,
+                    PorterDuff.Mode.SRC_IN
+                )
+        }
+    }
 }
