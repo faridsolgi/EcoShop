@@ -1,6 +1,7 @@
 package com.faridsolgi.ecoshop.di
 
 import com.faridsolgi.ecoshop.model.retrofit.LoginApi
+import com.faridsolgi.ecoshop.model.retrofit.ProductApi
 import com.faridsolgi.ecoshop.model.utils.BASE_URL
 import com.faridsolgi.ecoshop.model.utils.CONNECTION_TIME
 import com.google.gson.Gson
@@ -13,6 +14,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -65,4 +67,9 @@ object AppModule {
     @Singleton
     fun provideLoginApi(retrofit: Retrofit) : LoginApi =
         retrofit.create(LoginApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideProductApi(retrofit: Retrofit):ProductApi =
+        retrofit.create(ProductApi::class.java)
 }
