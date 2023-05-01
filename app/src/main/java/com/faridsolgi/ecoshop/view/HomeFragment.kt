@@ -10,6 +10,7 @@ import com.faridsolgi.ecoshop.adapter.ProductListAdapter
 import com.faridsolgi.ecoshop.databinding.FragmentHomeBinding
 import com.faridsolgi.ecoshop.model.ProductResponse
 import com.faridsolgi.ecoshop.model.ProductSortEnum
+import com.faridsolgi.ecoshop.model.room.entity.ShoppingCart
 import com.faridsolgi.ecoshop.model.utils.alertUser
 import com.faridsolgi.ecoshop.model.utils.initRecycler
 import com.faridsolgi.ecoshop.model.utils.setDrawableTint
@@ -17,13 +18,15 @@ import com.faridsolgi.ecoshop.view.dialog.ProductDetailDialog
 import com.faridsolgi.ecoshop.viewmodel.HomeViewModel
 import com.google.android.material.color.MaterialColors
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate),
     ProductCategoryAdapter.SetOnCategoriesItemClick,
-    ProductListAdapter.SetOnProductClickListener {
+    ProductListAdapter.SetOnProductClickListener, ProductListAdapter.SetOnAddToCartClickListener {
     @Inject
     lateinit var viewModel: HomeViewModel
 
@@ -102,6 +105,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private fun initRecyclerviews() {
         productCategoryAdapter._setOnCategoriesItemClick = this
         productListAdapter._setOnProductClickListener = this
+        productListAdapter._setOnAddToCartClickListener = this
         binding.rvProductCategory.initRecycler(
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false),
             productCategoryAdapter
@@ -122,5 +126,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.getProductDetailById(productResponse.id)
         }
+    }
+
+    override fun onAddToCartClick(productResponse: ProductResponse) {
+        lifecycleScope.launch {
+            viewModel.addToCart(ShoppingCart(
+                productId = productResponse.id ?:0,
+                name = productResponse.title,
+                price = productResponse.price,
+                imageUrl = productResponse.image
+            ))
+        }
+
     }
 }
