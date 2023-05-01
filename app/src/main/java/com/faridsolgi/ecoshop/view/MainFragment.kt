@@ -14,5 +14,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
         val navController = navHostFragment.navController
         binding.bottomNav.setupWithNavController(navController)
 
+        binding.favAddProduct.setOnClickListener {
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_mainFragment_to_addProductFragment)
+        }
+
     }
 }

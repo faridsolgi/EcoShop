@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.faridsolgi.ecoshop.model.ProductResponse
 import com.faridsolgi.ecoshop.model.ProductSortEnum
+import com.faridsolgi.ecoshop.model.room.entity.ShoppingCart
 import com.faridsolgi.ecoshop.repository.HomeRepository
 import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
@@ -66,6 +67,9 @@ class HomeViewModel @Inject constructor(val repository: HomeRepository) :ViewMod
                 _notifyMsg.postValue(it.errorBody()?.string())
             }
         }
+    }
+    suspend fun addToCart(shoppingCart: ShoppingCart){
+        repository.addToCert(shoppingCart)
     }
 
 

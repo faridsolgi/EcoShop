@@ -35,23 +35,18 @@ class ProductCategoryAdapter @Inject constructor(
 
     override fun getItemCount(): Int = categoriesList.size
 
-    fun loadFirstCategoryItem(){
-        try {
-           setOnCategoriesItemClick.onProductCategoryClickListener(categoriesList[0])
-        }catch (e:Exception){
-            e.printStackTrace()
-        }
-    }
 
     class ProductCategoryViewHolder( val binding: ItemProductCategoryBinding,
                                     private val setOnCategoriesItemClick: SetOnCategoriesItemClick) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(category: String) {
             val chip = Chip(binding.root.context)
+            if (binding.chipProductCategory.childCount == 0){
             chip.id = View.generateViewId()
             chip.text = category
             binding.chipProductCategory.isSingleSelection = true
             binding.chipProductCategory.addView(chip)
+        }
             chip.setOnClickListener {
                 setOnCategoriesItemClick.onProductCategoryClickListener(category)
             }

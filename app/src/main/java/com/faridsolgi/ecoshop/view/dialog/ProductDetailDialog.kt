@@ -1,16 +1,19 @@
 package com.faridsolgi.ecoshop.view.dialog
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.InsetDrawable
 import android.os.Build
-import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.faridsolgi.ecoshop.R
 import com.faridsolgi.ecoshop.databinding.DialogProductDetailBinding
 import com.faridsolgi.ecoshop.model.ProductResponse
+import com.faridsolgi.ecoshop.model.room.entity.ShoppingCart
+import com.faridsolgi.ecoshop.viewmodel.ProductDetailViewModel
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class ProductDetailDialog :
     BaseDialog<DialogProductDetailBinding>(DialogProductDetailBinding::inflate) {
 
@@ -19,16 +22,8 @@ class ProductDetailDialog :
         const val PRODUCT_KEY = "PRODUCT_KEY"
     }
 
-    override fun onStart() {
-        super.onStart()
-        dialog?.window?.setBackgroundDrawable( ColorDrawable(Color.TRANSPARENT))
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT)
-        val back = ColorDrawable(Color.TRANSPARENT)
-        val inset = InsetDrawable(back, 32)
-        dialog!!.window!!.setBackgroundDrawable(inset)
-
-    }
+@Inject
+lateinit var viewModel : ProductDetailViewModel
 
     override fun dialogBody() {
 
@@ -47,6 +42,7 @@ class ProductDetailDialog :
                 }
                 Picasso.get()
                     .load(product?.image)
+                    .placeholder(ContextCompat.getDrawable(requireContext(),R.drawable.img_placeholder)!!)
                     .into(binding.imgProductPic)
                     binding.apply {
                         tvTitle.text = product?.title
@@ -58,10 +54,23 @@ class ProductDetailDialog :
                         }
                     }
 
-
+                binding.ctaAddToCart.setOnClickListener {
+                    lifecycleScope.launch {
+                        viewModel.addToCart(
+                            ShoppingCart(
+                                productId = product?.id ?:0,
+                                name = product?.title,
+                                price = product?.price,
+                                imageUrl = product?.image
+                            )
+                        )
+                    }
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
+
+
     }
 }

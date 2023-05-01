@@ -1,6 +1,7 @@
 package com.faridsolgi.ecoshop.view
 
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.faridsolgi.ecoshop.R
@@ -11,6 +12,7 @@ import com.faridsolgi.ecoshop.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
@@ -23,9 +25,17 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     }
 
     override fun fragmentBody() {
+        //invisible toolbar on login
+        val mainActivity = activity as MainActivity
+        mainActivity.binding.appBarLayout.visibility= View.GONE
+
+
+
+
 
         viewModel.loginResult.observe(viewLifecycleOwner) {
             Log.i(TAG, "fragmentBody: loginResult :SUCCESS")
+            mainActivity.binding.appBarLayout.visibility= View.VISIBLE
 
             binding.root.findNavController()
                 .navigate(R.id.action_loginFragment_to_mainFragment)
@@ -41,9 +51,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 if (userName.isNotEmpty() && password.isNotEmpty())
                     viewModel.authUser(LoginRequest(userName, password))
                 else if (userName.isEmpty()) {
-                    alertUser(view = binding.ctaLogin, msg = getString(R.string.fill_username))
+                    alertUser(view = binding.inputUserName, msg = getString(R.string.fill_username))
                 } else if (password.isEmpty()) {
-                    alertUser(view = binding.ctaLogin, msg = getString(R.string.fill_password))
+                    alertUser(view = binding.inputPassword, msg = getString(R.string.fill_password))
                 }
             }
         }

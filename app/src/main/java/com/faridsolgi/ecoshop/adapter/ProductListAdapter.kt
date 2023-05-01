@@ -3,7 +3,9 @@ package com.faridsolgi.ecoshop.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.faridsolgi.ecoshop.R
 import com.faridsolgi.ecoshop.databinding.ItemProductBinding
 import com.faridsolgi.ecoshop.model.ProductResponse
 import com.squareup.picasso.Picasso
@@ -15,6 +17,8 @@ class ProductListAdapter @Inject constructor(@ActivityContext val context : Cont
 
     var _setOnProductClickListener : SetOnProductClickListener? =null
     private val setOnProductClickListener get() = _setOnProductClickListener!!
+    var _setOnAddToCartClickListener : SetOnAddToCartClickListener? =null
+    private val setOnAddToCartClickListener get() = _setOnAddToCartClickListener!!
 
 
 
@@ -30,7 +34,7 @@ class ProductListAdapter @Inject constructor(@ActivityContext val context : Cont
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductListViewHolder {
         val inflater = LayoutInflater.from(context)
       _binding = ItemProductBinding.inflate(inflater,parent,false)
-        return ProductListViewHolder(binding,setOnProductClickListener)
+        return ProductListViewHolder(binding,setOnProductClickListener,setOnAddToCartClickListener)
     }
 
     override fun onBindViewHolder(holder: ProductListViewHolder, position: Int) {
@@ -39,8 +43,11 @@ class ProductListAdapter @Inject constructor(@ActivityContext val context : Cont
 
     override fun getItemCount(): Int = productList.size
 
-    class ProductListViewHolder (private val binding: ItemProductBinding,
-    private val setOnProductClickListener: SetOnProductClickListener)
+    class ProductListViewHolder(
+        private val binding: ItemProductBinding,
+        private val setOnProductClickListener: SetOnProductClickListener,
+       private val setOnAddToCartClickListener: SetOnAddToCartClickListener
+    )
         : RecyclerView.ViewHolder(binding.root){
         fun  onBind(productResponse: ProductResponse){
             try {
@@ -48,22 +55,30 @@ class ProductListAdapter @Inject constructor(@ActivityContext val context : Cont
                 binding.price.text  = productResponse.price.toString()
                 binding.rvProductdesc.text = productResponse.description
                 binding.ratingBar.rating = (productResponse.rating?.rate ?: 0) as Float
+                binding.tvCategory.text = productResponse.category.toString()
                 if (!productResponse.image.isNullOrBlank()){
                     Picasso.get()
                         .load(productResponse.image)
+                        .placeholder(ContextCompat.getDrawable(binding.root.context, R.drawable.img_placeholder)!!)
                         .into(binding.imageViewProductPic)
 
+                }
+                binding.addToCart.setOnClickListener {
+                    setOnAddToCartClickListener.onAddToCartClick(productResponse)
                 }
                 binding.root.setOnClickListener {
                     setOnProductClickListener.onProductClick(productResponse)
                 }
+
             }catch (e:Exception){
                 e.printStackTrace()
             }
 
         }
     }
-
+    interface SetOnAddToCartClickListener{
+        fun onAddToCartClick(productResponse: ProductResponse)
+    }
     interface SetOnProductClickListener{
         fun onProductClick(productResponse: ProductResponse)
     }

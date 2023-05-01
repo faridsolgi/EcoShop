@@ -18,6 +18,41 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.faridsolgi.ecoshop.view.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.faridsolgi.ecoshop.view.AddProductFragment"
+        android:label="AddProductFragment" />
+
+    <fragment
+        android:id="@+id/shoppingCartFragment"
+        android:name="com.faridsolgi.ecoshop.view.ShoppingCartFragment"
+        android:label="ShoppingCartFragment" >
+        <action
+            android:id="@+id/action_shoppingCartFragment_to_checkOutFragment"
+            app:destination="@id/checkOutFragment" />
+        <action
+            android:id="@+id/action_shoppingCartFragment_to_mainFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_shoppingCartFragment"
+        app:destination="@id/shoppingCartFragment" />
+    <fragment
+        android:id="@+id/checkOutFragment"
+        android:name="com.faridsolgi.ecoshop.view.CheckOutFragment"
+        android:label="CheckOutFragment" >
+        <action
+            android:id="@+id/action_checkOutFragment_pop"
+            app:popUpTo="@id/checkOutFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

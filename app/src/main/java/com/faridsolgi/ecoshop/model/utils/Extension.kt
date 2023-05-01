@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 
 fun RecyclerView.initRecycler(
@@ -44,3 +46,14 @@ fun  TextView.setDrawableTint(color: Int){
         }
     }
 }
+fun roundOffDecimal(number: Float?): Float? {
+    try {
+        val df = DecimalFormat("#.##")
+        df.roundingMode = RoundingMode.FLOOR
+        return df.format(number).toFloat()
+    }catch (e:Exception){
+        e.printStackTrace()
+        return number
+    }
+}
+
