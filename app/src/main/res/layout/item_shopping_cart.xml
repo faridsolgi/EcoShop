@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgProductPic"
+        android:layout_width="110dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView_round8"
+        tools:src="@drawable/banner_home_top" />
+
+    <ImageButton
+        android:id="@+id/btnAddQuantity"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/shape_circle_color_secondary"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="@id/imgProductPic"
+        app:layout_constraintStart_toEndOf="@+id/txtInpLayQuantity"
+        app:layout_constraintTop_toTopOf="@id/imgProductPic" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInpLayQuantity"
+        android:layout_width="70dp"
+        android:layout_marginStart="8dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/btnAddQuantity"
+        app:layout_constraintStart_toEndOf="@+id/btnRemoveQuantity"
+        app:layout_constraintTop_toTopOf="@id/btnAddQuantity">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:text="123"
+            android:inputType="number"
+            android:textAlignment="center" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/btnRemoveQuantity"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/shape_circle_color_secondary"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_round_remove"
+
+        app:layout_constraintBottom_toBottomOf="@id/imgProductPic"
+        app:layout_constraintStart_toEndOf="@+id/imgProductPic"
+        app:layout_constraintTop_toTopOf="@id/imgProductPic"
+        />
+
+    <View
+        android:layout_width="0dp"
+        android:id="@+id/viewLineUnderProductPic"
+        android:layout_height="0.5dp"
+        android:background="?attr/colorOutline"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgProductPic"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        app:layout_constraintStart_toStartOf="@id/imgProductPic"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnSurface"
+        android:textAppearance="@style/TextAppearance.EcoShop.Caption"
+        android:id="@+id/lblProductName"
+        app:layout_constraintTop_toBottomOf="@id/viewLineUnderProductPic"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:maxLines="2"
+        android:textAppearance="@style/TextAppearance.EcoShop.Caption"
+        android:textColor="?attr/colorOnSurface"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/lblProductName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/lblProductName"
+        app:layout_constraintTop_toTopOf="@id/lblProductName"
+        tools:text="Nike Triple Black Air Force 1 '07 sneakers" />
+
+    <View
+        android:id="@+id/viewLineUnderProductName"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="8dp"
+        android:background="?attr/colorOutline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        app:layout_constraintStart_toStartOf="@id/imgProductPic"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnSurface"
+        android:textAppearance="@style/TextAppearance.EcoShop.Caption"
+        android:id="@+id/lblProductPrice"
+        app:layout_constraintTop_toBottomOf="@id/viewLineUnderProductName"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/tvProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textAppearance="@style/TextAppearance.EcoShop.Caption"
+        android:textColor="?attr/colorOnSurface"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/lblProductPrice"
+        app:layout_constraintStart_toStartOf="@+id/tvProductName"
+        app:layout_constraintTop_toTopOf="@id/lblProductPrice"
+        tools:text="@string/dollorSignWithPrice" />
+
+    <View
+        android:id="@+id/viewLineUnderProductPrice"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="8dp"
+        android:background="?attr/colorOutline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductPrice" />
+
+    <TextView
+        android:id="@+id/lblTotalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/total"
+        android:textAppearance="@style/TextAppearance.EcoShop.Caption"
+        android:textColor="?attr/colorOnSurface"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/imgProductPic"
+        app:layout_constraintTop_toBottomOf="@id/viewLineUnderProductPrice"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvTotalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textAppearance="@style/TextAppearance.EcoShop.Caption"
+        android:textColor="?attr/colorOnSurface"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/lblTotalPrice"
+
+        app:layout_constraintStart_toStartOf="@+id/tvProductName"
+        app:layout_constraintTop_toTopOf="@id/lblTotalPrice"
+        tools:text="@string/dollorSignWithPrice" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
