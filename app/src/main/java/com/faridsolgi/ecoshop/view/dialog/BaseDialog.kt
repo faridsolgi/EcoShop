@@ -1,5 +1,8 @@
 package com.faridsolgi.ecoshop.view.dialog
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.InsetDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -33,5 +36,15 @@ abstract class BaseDialog<T : ViewBinding>
         _binding =null
     }
 
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.setBackgroundDrawable( ColorDrawable(Color.TRANSPARENT))
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT)
+        val back = ColorDrawable(Color.TRANSPARENT)
+        val inset = InsetDrawable(back, 32)
+        dialog!!.window!!.setBackgroundDrawable(inset)
+
+    }
     abstract fun dialogBody()
 }
