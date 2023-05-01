@@ -41,9 +41,13 @@ Dependency injection with DAGGER HILT
 
 [Navigation component](https://developer.android.com/guide/navigation)  -  Fragment routing handler
 
+[Room ORM](https://developer.android.com/training/data-storage/room)  - Database object mapping library use to access the database
+
 [Coroutines](https://developer.android.com/kotlin/coroutines) - Concurrency design pattern for asynchronous programming.
 
 [Flow](https://developer.android.com/kotlin/flow) - Stream of value that returns from suspend function.
+
+[MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - Android chart view / graph view library.
 
 [Picasso](https://square.github.io/picasso/) - Image loading
 
