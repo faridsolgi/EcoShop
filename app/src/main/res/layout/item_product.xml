@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="145dp"
+    android:layout_width="175dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,7 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:src="@drawable/banner_home_top"
             android:scaleType="centerInside"
-            app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView8"
+            app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView_round8"
             app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/imageViewProductPic"
             android:layout_gravity="center"
@@ -30,28 +30,47 @@
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:isIndicator="true"
-            android:layout_marginTop="8dp"
-          android:theme="@style/Widget.EcoShop.RatingBar"
             android:numStars="5"
-            tools:rating="3.7"
+            android:theme="@style/Widget.EcoShop.RatingBar"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCategory"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageViewProductPic" />
+            app:layout_constraintTop_toTopOf="@+id/tvCategory"
+            tools:rating="3.7" />
+
         <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/shape_full_round_rectangle_color_secondary"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:maxLines="2"
+            android:padding="2dp"
+            android:textAppearance="@style/TextAppearance.EcoShop.Caption"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintEnd_toStartOf="@id/ratingBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewProductPic"
+            tools:text="women's clothes" />
+
+        <TextView
+            android:id="@+id/rvProductTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="title"
             android:lines="2"
             android:maxLines="2"
-                android:id="@+id/rvProductTitle"
-
             android:textColor="?attr/colorOnSurface"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ratingBar" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCategory"
+            tools:text="title" />
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -62,35 +81,35 @@
             android:textAppearance="@style/TextAppearance.EcoShop.Caption"
             android:id="@+id/rvProductdesc"
             tools:text="sfafalsf a;fla ;flaf la jaifj aifj aif jai sjai fjai fjj aifja if"
-            android:textColor="?attr/colorOnBackground"
+            android:textColor="?attr/colorOutline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rvProductTitle" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+        <Button
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginTop="8dp"
+            app:iconGravity="top"
             android:layout_marginEnd="16dp"
+            android:clickable="true"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_bag"
-            android:background="?attr/colorPrimary"
-            app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView8"
-            android:scaleType="centerCrop"
-            android:id="@+id/addToCert"
+            app:icon="@drawable/ic_bag"
+            android:id="@+id/addToCart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rvProductdesc" />
+            app:layout_constraintTop_toBottomOf="@+id/rvProductdesc"
+            android:focusable="true" />
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@id/addToCert"
+            app:layout_constraintEnd_toStartOf="@id/addToCart"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/addToCert"
+            app:layout_constraintTop_toTopOf="@id/addToCart"
             android:textColor="?attr/colorOnSurface"
             android:id="@+id/price"
-            app:layout_constraintBottom_toBottomOf="@id/addToCert"
+            app:layout_constraintBottom_toBottomOf="@id/addToCart"
             android:text="$ 100"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"/>

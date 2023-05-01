@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
-    android:layout_height="match_parent">
+    android:clickable="true"
+    android:layout_height="match_parent"
+    android:focusable="true">
     <ScrollView
         android:layout_width="match_parent"
         android:fillViewport="true"
@@ -23,7 +24,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginTop="16dp"
-            app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView8"
+            app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView_round8"
             android:src="@drawable/banner_home_top"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,15 +118,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_margin="16dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="48dp"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rvProductCategory"
             app:layout_constraintVertical_bias="0.0"
             tools:itemCount="5"
             tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:layout_editor_absoluteX="16dp"
             tools:listitem="@layout/item_product"
             tools:orientation="horizontal" />
     </androidx.constraintlayout.widget.ConstraintLayout>

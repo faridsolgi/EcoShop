@@ -22,7 +22,7 @@
                 android:id="@+id/viewTopBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/md_blue_grey_100"
+                android:background="?attr/colorSurfaceVariant"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
                 android:text="@string/product_details"
                 android:textAppearance="@style/TextAppearance.EcoShop.Subtitle1"
                 android:id="@+id/lblProductDetail"
-                android:textColor="?attr/colorOnSurface"
+                android:textColor="?attr/colorOnSurfaceVariant"
                 app:layout_constraintBottom_toBottomOf="@id/viewTopBar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -52,7 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="4.9"
-                    android:textColor="?attr/colorOutline"
+                    android:textColor="?attr/colorOnSurfaceVariant"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="16dp"
                     android:textAppearance="@style/TextAppearance.EcoShop.Headline6"
@@ -66,7 +66,7 @@
                 android:layout_margin="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView8"
+                app:shapeAppearanceOverlay="@style/Widget.EcoShop.ShapableImageView_round8"
                 app:layout_constraintTop_toBottomOf="@id/viewTopBar"
                 tools:src="@drawable/banner_home_top"
                 android:id="@+id/imgProductPic"
@@ -115,6 +115,7 @@ m tmm"/>
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:icon="@drawable/ic_bag"
+
             android:id="@+id/ctaAddToCart"
             android:text="@string/add_to_cart"
             app:layout_constraintEnd_toEndOf="parent"
