@@ -4,9 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@+id/appBarLayout"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/shape_background_gradiant_blue"
+            app:navigationIcon="@drawable/ic_menu_indicator">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:elevation="0dp"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/btnBag"
+                    android:src="@drawable/ic_bag"/>
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:elevation="2dp"
+                    android:background="@drawable/shape_circle_color_secondary"
+                    android:id="@+id/tvCartItemCounter"
+                    android:paddingTop="2dp"
+                    android:visibility="gone"
+                    android:textAppearance="@style/TextAppearance.EcoShop.Caption"
+                    android:layout_margin="2dp"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:text="1"
+                    android:textAlignment="center"
+                    />
+
+            </FrameLayout>
+
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_logo_name"
+                app:tint="@color/md_white_1000" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+   <androidx.fragment.app.FragmentContainerView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:id="@+id/nav_host_fragment_container"
@@ -16,6 +71,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
